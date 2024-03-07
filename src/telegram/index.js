@@ -1,5 +1,7 @@
 const { Telegraf } = require("telegraf");
-const TOKEN = '6884974307:AAEN0vj63vJ0ntxRoVSiqSnupPg3S2h7ymc';
+const config = require("../config/config");
+
+const TOKEN = config.get('token-bot');
 const bot = new Telegraf(TOKEN);
 
 bot.on('text', ctx => {
