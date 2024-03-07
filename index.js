@@ -3,19 +3,15 @@ const bot = require('./src/telegram/index');
 const config = require('./src/config/config');
 const bodyParser = require('body-parser');
 
-
-const TOKEN = config.get('token-bot');
-const WH_PATH = '/bot' + TOKEN;
-
 const app = express();
 
 app.use(bodyParser.json())
-app.use(bot.webhookCallback(WH_PATH));
-bot.telegram.setWebhook('https://t-bot-kik.vercel.app' + WH_PATH);
+app.use(bot.webhookCallback(config.getWebHookpath('shot')));
+bot.telegram.setWebhook(config.getWebHookpath('full'));
 
 
 app.get("/", (req, res) => {
-  res.send("Express on Vercel--- add telegraf v5");
+  res.send("Express on Vercel--- add telegraf v6");
 });
 
 app.listen(5000, () => {
