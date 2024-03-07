@@ -13,7 +13,7 @@ bot.on('text', ctx => {
 })
 
 app.get("/", (req, res) => {
-  res.send("Express on Vercel-------------------------------------------------");
+  res.send("Express on Vercel------------------------------------------------- add telegraf");
 });
 
 app.listen(5000, () => {
