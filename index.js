@@ -5,7 +5,7 @@ const WH_PATH = '/bot' + TOKEN;
 const bot = new  Telegraf(TOKEN);
 const app = express();
 
-bot.telegram.setWebhook('https://beige-worlds-matter.loca.lt' + WH_PATH)
+bot.telegram.setWebhook('https://t-bot-kik.vercel.app' + WH_PATH)
 app.use(bot.webhookCallback(WH_PATH))
 
 bot.on('text', ctx => {
