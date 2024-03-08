@@ -1,4 +1,5 @@
 const express = require("express");
+require('express-async-errors');
 const bot = require('./src/telegram/index');
 const config = require('./src/config/config');
 const bodyParser = require('body-parser');

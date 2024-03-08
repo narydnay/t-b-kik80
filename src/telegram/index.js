@@ -5,7 +5,9 @@ const TOKEN = config.get('token-bot');
 const bot = new Telegraf(TOKEN);
 
 bot.on('text', ctx => {
-  ctx.reply('hi bro we work good')
+  const { message } = ctx;
+  
+  ctx.reply('hi bro we work good, what are doing? ...' + message)
 })
 
 
