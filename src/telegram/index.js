@@ -7,7 +7,7 @@ const bot = new Telegraf(TOKEN);
 bot.on('text', ctx => {
   const { message } = ctx;
   
-  ctx.reply('hi bro we work good, what are doing? ...' + message)
+  ctx.reply('hi bro we work good, what are doing? ...' + JSON.stringify(message, null, 4))
 })
 
 
