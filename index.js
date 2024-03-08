@@ -6,13 +6,14 @@ const routers = require("./src/routers/admin..router");
 const { noFound } = require("./src/middlewares/noFound");
 
 const app = express();
-app.use(noFound)
 app.use(bodyParser.json())
 app.use(bot.webhookCallback(config.getWebHookpath('shot')));
 bot.telegram.setWebhook(config.getWebHookpath('full'));
 app.use(routers)
-app.listen(5000, () => {
-  console.log("Running on port 5000.");
+
+app.use(noFound)
+app.listen(5001, () => {
+  console.log("Running on port 5001.");
 });
 
 
