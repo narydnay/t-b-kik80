@@ -5,18 +5,21 @@ const { getAnalytics } = require('firebase/analytics');
 const config = require('../config/config');
 
 const fbapp = initializeApp(config.get('fb-config'));
-// Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(fbapp);
 
-const admin = async (req,res) => {
+// post
+const addPrisonerCustom = async (req,res) => {
   try {
-    const addPrisoner = await addDoc(collection(db, 'mybase'),{
-      name: "Авджян Володимир Володимирович",
-      age: "11.11.1985",
-      image_url: '',
+    // console.log({req})
+    const { first_name, last_name, surname, full_years  } = req.body;
+console.log({ first_name, last_name, surname, full_years  })
+    // const addPrisoner = await addDoc(collection(db, 'mybase'),{
+    //   name: "Авджян Володимир Володимирович",
+    //   age: "11.11.1985",
+    //   image_url: '',
   
-    })
-    console.log({addPrisoner})
+    // })
+    // console.log({addPrisoner})
     // console.log({db})
     
   } catch (error) {
@@ -28,5 +31,7 @@ const admin = async (req,res) => {
 }
 
 module.exports = {
-  admin
+  addPrisonerCustom
+
+
 }
