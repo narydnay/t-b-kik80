@@ -6,7 +6,7 @@
       "use": "@now/node"
     },
     { 
-      "src": "/src/swagger/**", 
+      "src": "./src/swagger/index.js", 
       "use": "@now/node" 
     }
   ],
@@ -16,8 +16,8 @@
       "dest": "index.js"
     },
     { 
-      "src": "/dist/(.*)", 
-      "dest": "/dist/index.js"
+      "src": "./dist/(.*)", 
+      "dest": "./dist/index.js"
     }
   ]
 }
