@@ -10,7 +10,10 @@
     {
       "src": "/(.*)",
       "dest": "index.js"
+    },
+    { 
+      "src": "/dist/(.*)", 
+      "dest": "/dist/$1" 
     }
-  ],
-  "buildCommand": "yarn gen-prod"
+  ]
 }
