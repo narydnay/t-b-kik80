@@ -1,6 +1,10 @@
 {
   "version": 2,
   "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node"
+    },
     { 
       "src": "./src/swagger/index.js", 
       "use": "@now/node" 
@@ -10,10 +14,6 @@
     {
       "src": "/(.*)",
       "dest": "index.js"
-    },
-    { 
-      "src": "./dist/(.*)", 
-      "dest": "./dist/index.js"
     }
   ]
 }
