@@ -13,6 +13,7 @@ const addPrisonerCustom = async (req,res) => {
     // console.log({req})
     const { first_name, last_name, surname, full_years  } = req.body;
 console.log({ first_name, last_name, surname, full_years  })
+
     // const addPrisoner = await addDoc(collection(db, 'mybase'),{
     //   name: "Авджян Володимир Володимирович",
     //   age: "11.11.1985",

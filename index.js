@@ -6,10 +6,12 @@ const bodyParser = require('body-parser');
 const routers = require("./src/routers/admin.router");
 const { noFound, errorHandler } = require("./src/middlewares/noFound");
 const routerPrisoner = require("./src/routers/prisoner.router");
-
+const swaggerFile = require('./dist/swagger.json')
+const swaggerUi = require('swagger-ui-express');
 const app = express();
-app.use(bodyParser.json())
 
+app.use(bodyParser.json())
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 app.use(bot.webhookCallback(config.getWebHookpath('shot')));
 bot.telegram.setWebhook(config.getWebHookpath('full'));
@@ -20,7 +22,7 @@ app.use(routers);
 app.use(noFound);
 app.use(errorHandler);
 
-app.listen(5001, () => {
+app.listen(config.get('port'), () => {
   console.log("Running on port 5001.");
 });
 

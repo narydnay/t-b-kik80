@@ -1,0 +1,14 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Нарядная online",
+    "description": "Приложение для помощи сотрудникам КВК-80",
+    "version": "1.0.0"
+  },
+  "host": "Localhost:5001",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {}
+}
