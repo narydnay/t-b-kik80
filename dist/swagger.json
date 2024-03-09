@@ -5,7 +5,7 @@
     "description": "Приложение для помощи сотрудникам КВК-80",
     "version": "1.0.0"
   },
-  "host": "Localhost:5001",
+  "host": "https://t-bot-kik.vercel.app",
   "basePath": "/",
   "schemes": [
     "http"

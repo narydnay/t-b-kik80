@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "gen": "NODE_ENV=development nodemon ./src/swagger/index.js"
+    "gen": "NODE_ENV=development nodemon ./src/swagger/index.js",
+    "gen-prod": "NODE_ENV=production node ./src/swagger/index.js"
   },
   "author": "",
   "license": "ISC",
