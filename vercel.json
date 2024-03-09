@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js",
+      "src": "src/swagger/index.js",
       "use": "@now/node"
     }
   ],
@@ -12,5 +12,4 @@
       "dest": "index.js"
     }
   ],
-  "installCommand": "yarn gen-prod"
 }
