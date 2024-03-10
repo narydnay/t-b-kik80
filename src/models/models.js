@@ -13,8 +13,6 @@ db = getFirestore(fbApp);
 
 
 class queryDataBase {
-  // fbApp = initializeApp(config.get('fb-config'));
-
 
   async setData({data, nameDb}){
     try {
@@ -51,10 +49,6 @@ class queryDataBase {
     } catch (error) {
       throw error;
     }
-  }
-
-  getData(){
-
   }
 
   deleteData(){
