@@ -12,7 +12,7 @@ const getListPrisonerCustom = async (req,res) => {
     // console.log({req})
     const { first_name, last_name, surname, full_years  } = req.body;
 // console.log({ first_name, last_name, surname, full_years  })
-const listPrisoner = await axios.get('https://t-bot-kik.vercel.app/api/get-all-prisoners')
+const listPrisoner = await axios.get('https://t-bot-kik.vercel.app/api/get-all-prisoners');
 console.log({listPrisoner: listPrisoner.data})
 
    
