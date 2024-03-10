@@ -9,9 +9,12 @@ const dbFirebase = new queryDataBase();
 bot.on('text', async ctx => {
   const { message } = ctx;
   if(message.text === 'список' ){
-    const listPrisoner = await dbFirebase.getDataFromDb({nameField: 'name', qOperant: '!=', value:false});            
-    ctx.reply('hi bro we work good, what are doing? ...' + JSON.stringify(listPrisoner.splice(0,3), null, 4))
-    
+    try{
+      const listPrisoner = await dbFirebase.getDataFromDb({nameField: 'name', qOperant: '!=', value:false});            
+      ctx.reply('hi bro we work good, what are doing? ...' + JSON.stringify(listPrisoner.splice(0,3), null, 4))
+    }catch(err){
+      ctx.reply('ERROR? ...\n' + JSON.stringify(err, null, 4))
+    }
   }
 
   ctx.reply('hi bro we work good, what are doing? ...' + JSON.stringify(message, null, 4))
