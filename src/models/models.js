@@ -6,19 +6,19 @@ const { initializeApp, applicationDefault, cert } = require('firebase-admin/app'
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
 
 const config = require('../config/config');
+fbApp = initializeApp({
+  credential: cert(config.get('serviceAccount'))
+});
+db = getFirestore(this.fbApp);
 
 
 class queryDataBase {
   // fbApp = initializeApp(config.get('fb-config'));
-  fbApp = initializeApp({
-    credential: cert(config.get('serviceAccount'))
-  });
-  db = getFirestore(this.fbApp);
 
 
   async setData({data, nameDb}){
     try {
-      await this.db
+      await db
                           .collection(nameDb)
                           .doc(data.name)
                           .set({
@@ -35,7 +35,7 @@ class queryDataBase {
     try {
 
       let results = [];
-      const dbConnect = this.db.collection('mybase')
+      const dbConnect = db.collection('mybase')
       // console.log(dbConnect)
       const listData = await dbConnect.where(nameField,qOperant, value ).get()
       if (listData.empty) {
