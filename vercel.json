@@ -14,6 +14,12 @@
     {
       "src": "/(.*)",
       "dest": "index.js"
+    }   
+  ],
+  "rewrite":[
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
     }
   ]
 }
