@@ -9,7 +9,7 @@ const config = require('../config/config');
 fbApp = initializeApp({
   credential: cert(config.get('serviceAccount'))
 });
-db = getFirestore(this.fbApp);
+db = getFirestore(fbApp);
 
 
 class queryDataBase {
@@ -19,13 +19,13 @@ class queryDataBase {
   async setData({data, nameDb}){
     try {
       await db
-                          .collection(nameDb)
-                          .doc(data.name)
-                          .set({
-                            ...data,
-                            dateCreate: Timestamp.fromDate(new Date()),
-                            dateUpdate: null,
-                          });
+            .collection(nameDb)
+            .doc(data.name)
+            .set({
+              ...data,
+              dateCreate: Timestamp.fromDate(new Date()),
+              dateUpdate: null,
+            });
     } catch (error) {
       throw error;
     }
