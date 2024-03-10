@@ -4,7 +4,7 @@ const { addPrisonerCustom, addPrisonerFile, getAllPrisoner } = require('../contr
 
 routerPrisoner.get('/get-all-prisoners', getAllPrisoner);
 
-routerPrisoner.post('/add-prisoner', addPrisonerCustom);
+routerPrisoner.get('/add-prisoner', addPrisonerCustom);
 routerPrisoner.post('/add-prisoner-file', addPrisonerFile);
 
 module.exports = routerPrisoner;
