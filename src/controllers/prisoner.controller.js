@@ -7,19 +7,19 @@ const { default: axios } = require('axios');
 
 
 // post
-const addPrisonerCustom = async (req,res) => {
+const getListPrisonerCustom = async (req,res) => {
   try {
     // console.log({req})
     const { first_name, last_name, surname, full_years  } = req.body;
 // console.log({ first_name, last_name, surname, full_years  })
-const listPrisoner = await axios.get('http://localhost:5001/api/get-all-prisoners')
+const listPrisoner = await axios.get('https://t-bot-kik.vercel.app/api/get-all-prisoners')
 console.log({listPrisoner: listPrisoner.data})
 
    
 return res.status(200).json(listPrisoner.data)
   } catch (error) {
       console.log({error})
-      return res.status(500).send('Error ' + error.message)
+      return res.status(500).json( error)
   }
 
 }
@@ -118,6 +118,6 @@ return res
 module.exports = {
   getAllPrisoner,
   addPrisonerFile,
-  addPrisonerCustom,
+  getListPrisonerCustom,
 
 }
