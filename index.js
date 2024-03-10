@@ -20,7 +20,7 @@ app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use(bot.webhookCallback(config.getWebHookpath('shot')));
 bot.telegram.setWebhook(config.getWebHookpath('full'));
 
-app.use(routerPrisoner)
+app.use('/api',routerPrisoner)
 app.use(routers);
 
 app.use(noFound);

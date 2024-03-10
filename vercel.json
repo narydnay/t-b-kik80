@@ -16,6 +16,14 @@
       "destination": "/"
     },
     {
+      "source": "/:path*",
+      "destination": "https://https://t-bot-kik.vercel.app/:path*"
+    },
+    {
+      "source": "/:path*/",
+      "destination": "https://https://t-bot-kik.vercel.app/:path*/"
+    },
+    {
       "source": "/api/:path*",
       "destination": "https://https://t-bot-kik.vercel.app/:path*"
     },
