@@ -10,7 +10,7 @@ bot.on('text', async ctx => {
   if(message.text === 'список' ){
     const listPrisoner = dbFirebase.getDataFromDb({nameField: 'name', qOperant: '!=', value:false});
     ctx.reply('hi bro we work good, what are doing? ...' + JSON.stringify(listPrisoner.splice(0,3), null, 4))
-    listPrisoner
+    
   }
 
   // ctx.reply('hi bro we work good, what are doing? ...' + JSON.stringify(message, null, 4))
