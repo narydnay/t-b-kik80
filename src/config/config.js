@@ -1,4 +1,4 @@
-
+const { join } = require('path');
 
 class Config{
   state = {
@@ -15,6 +15,7 @@ class Config{
       appId: "1:513130161339:web:10285471a898b1a7f5759e",
       measurementId: "G-D1X8CLDW6X"
     },
+    serviceAccount: join(__dirname, './','t-b-kik-80-firebase-adminsdk-9tb50-407289ee90.json')
   }
   get(name){
     switch(name){
@@ -24,6 +25,8 @@ class Config{
         return this.state.host;
       case 'fb-config':
         return this.state.firebaseAuthConfig;
+      case 'serviceAccount':
+        return this.state.serviceAccount;
       case 'port':
         return this.state.port;
         default: null;

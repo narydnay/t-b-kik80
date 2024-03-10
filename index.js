@@ -8,13 +8,14 @@ const { noFound, errorHandler } = require("./src/middlewares/noFound");
 const routerPrisoner = require("./src/routers/prisoner.router");
 const swaggerFile = require('./dist/swagger.json')
 const swaggerUi = require('swagger-ui-express');
+const dotenv = require("dotenv");
+
 const app = express();
 
-const CSS_URL =
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 
+dotenv.config()
 app.use(bodyParser.json())
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerFile, { customCssUrl: CSS_URL }))
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 app.use(bot.webhookCallback(config.getWebHookpath('shot')));
 bot.telegram.setWebhook(config.getWebHookpath('full'));

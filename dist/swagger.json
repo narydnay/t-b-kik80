@@ -5,10 +5,92 @@
     "description": "Приложение для помощи сотрудникам КВК-80",
     "version": "1.0.0"
   },
-  "host": "https://t-bot-kik.vercel.app",
+  "host": "Localhost:5001",
   "basePath": "/",
   "schemes": [
     "http"
   ],
-  "paths": {}
+  "paths": {
+    "/get-all-prisoners": {
+      "get": {
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/add-prisoner": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "example": "any"
+                },
+                "last_name": {
+                  "example": "any"
+                },
+                "surname": {
+                  "example": "any"
+                },
+                "full_years": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/add-prisoner-file": {
+      "post": {
+        "tags": [
+          "Prisoner"
+        ],
+        "description": "add members from file csv to database",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name prisoner",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "full_age",
+            "in": "query",
+            "description": "date berth",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "User registered successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
 }

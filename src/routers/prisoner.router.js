@@ -1,9 +1,10 @@
 const { Router } = require('express');
-const { addPrisonerCustom } = require('../controllers/prisoner.controller');
-
 const routerPrisoner = new Router();
+const { addPrisonerCustom, addPrisonerFile, getAllPrisoner } = require('../controllers/prisoner.controller');
 
-routerPrisoner.post('/add-risoner', addPrisonerCustom);
+routerPrisoner.get('/get-all-prisoners', getAllPrisoner);
 
+routerPrisoner.post('/add-prisoner', addPrisonerCustom);
+routerPrisoner.post('/add-prisoner-file', addPrisonerFile);
 
 module.exports = routerPrisoner;

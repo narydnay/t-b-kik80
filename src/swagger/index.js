@@ -1,13 +1,8 @@
 const {join} = require('path');
 const swaggerAutogen = require('swagger-autogen')();
 const config = require('../config/config')
-const dotenv = require('dotenv');
+
 // базавая инфа об app
-console.log(process.env)
-console.log(process.env.NODE_ENV)
-console.log(dotenv.config({
-  test: true
-}))
 const doc = {
   info: {
     title: 'Нарядная online',
@@ -20,7 +15,8 @@ const outPutFile = join(__dirname, '../../','dist/', 'swagger.json');
 
 // массив путей к роутерам
 const endpointFiles = [
-  join(__dirname, '../controllers/admin.controller.js'),
+  // join(__dirname, '../controllers/admin.controller.js'),
+  join(__dirname, '../routers/prisoner.router.js'),
 ];
 console.log(endpointFiles)
 swaggerAutogen(outPutFile, endpointFiles, doc)
