@@ -16,7 +16,7 @@
       "dest": "index.js"
     }   
   ],
-  "rewrite":[
+  "rewrites":[
     {
       "source": "/api/(.*)",
       "destination": "/api"
