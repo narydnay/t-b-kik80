@@ -1,6 +1,7 @@
 // const multer = require('multer');
 const { parse } = require('csv-parse/sync');
 const { queryDataBase } = require('../models/models');
+const { default: axios } = require('axios');
 //{dest: './dist/'}
 // const upload = multer().single('uploaded_file')
 
@@ -10,15 +11,17 @@ const addPrisonerCustom = async (req,res) => {
   try {
     // console.log({req})
     const { first_name, last_name, surname, full_years  } = req.body;
-console.log({ first_name, last_name, surname, full_years  })
+// console.log({ first_name, last_name, surname, full_years  })
+const listPrisoner = await axios.get('http://localhost:5001/api/get-all-prisoners')
+console.log({listPrisoner: listPrisoner.data})
 
    
+return res.status(200).json(listPrisoner.data)
   } catch (error) {
       console.log({error})
       return res.status(500).send('Error ' + error.message)
   }
 
-  return res.status(200).send('add async ')
 }
 
 async function addPrisonerFile(req, res, next) {
