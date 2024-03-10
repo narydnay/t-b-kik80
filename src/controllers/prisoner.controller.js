@@ -1,8 +1,8 @@
-const multer = require('multer');
+// const multer = require('multer');
 const { parse } = require('csv-parse/sync');
 const { queryDataBase } = require('../models/models');
 //{dest: './dist/'}
-const upload = multer().single('uploaded_file')
+// const upload = multer().single('uploaded_file')
 
 
 // post
@@ -12,15 +12,7 @@ const addPrisonerCustom = async (req,res) => {
     const { first_name, last_name, surname, full_years  } = req.body;
 console.log({ first_name, last_name, surname, full_years  })
 
-    // const addPrisoner = await addDoc(collection(db, 'mybase'),{
-    //   name: "Авджян Володимир Володимирович",
-    //   age: "11.11.1985",
-    //   image_url: '',
-  
-    // })
-    // console.log({addPrisoner})
-    // console.log({db})
-    
+   
   } catch (error) {
       console.log({error})
       return res.status(500).send('Error ' + error.message)
@@ -50,37 +42,37 @@ async function addPrisonerFile(req, res, next) {
 // '309ч1, 70ч4 (121ч1)',
 // '5р.п/в'
  try {
-    upload(req, res, async function (err) {
-      if (err instanceof multer.MulterError) {
-        next(err)
-      } else if (err) {
-        next(err)
-      }
-      // console.log(req.file)
-      if(Object.keys(req?.file).length){
-        const { fieldname,originalname,encoding,mimetype,buffer,size } = req.file
-        console.log({fieldname,originalname,encoding,mimetype,buffer,size})   
-        const data = await parse(buffer); 
-        for(let prisoner of data){
-          const prisonerData = {
-            name: prisoner[0],
-            full_age: prisoner[1],
-            otd: prisoner[2],
-            code_article: prisoner[3],
-            period_punish: prisoner[4],
-            image_url: prisoner[0] + '{' + prisoner[1] + '}',
-            isGuard: true
-          }
-          db.setData({data: prisonerData, nameDb: 'mybase'})
-        }
-      }
-       // #swagger.responses[201] = { description: 'User registered successfully.' }
-      res.status(200).json(
-        {
-          message: 'All data upload success',
-        }
-      )
-    })
+    // upload(req, res, async function (err) {
+    //   if (err instanceof multer.MulterError) {
+    //     next(err)
+    //   } else if (err) {
+    //     next(err)
+    //   }
+    //   // console.log(req.file)
+    //   if(Object.keys(req?.file).length){
+    //     const { fieldname,originalname,encoding,mimetype,buffer,size } = req.file
+    //     console.log({fieldname,originalname,encoding,mimetype,buffer,size})   
+    //     const data = await parse(buffer); 
+    //     for(let prisoner of data){
+    //       const prisonerData = {
+    //         name: prisoner[0],
+    //         full_age: prisoner[1],
+    //         otd: prisoner[2],
+    //         code_article: prisoner[3],
+    //         period_punish: prisoner[4],
+    //         image_url: prisoner[0] + '{' + prisoner[1] + '}',
+    //         isGuard: true
+    //       }
+    //       db.setData({data: prisonerData, nameDb: 'mybase'})
+    //     }
+    //   }
+    //    // #swagger.responses[201] = { description: 'User registered successfully.' }
+    //   res.status(200).json(
+    //     {
+    //       message: 'All data upload success',
+    //     }
+    //   )
+    // })
   
     // res.status(201).json({message: 'ok data recive', type: typeFile})
   } catch (error) {
