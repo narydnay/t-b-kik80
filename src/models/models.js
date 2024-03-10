@@ -2,8 +2,8 @@
 // const { getFirestore, collection, addDoc, getDoc, doc, namedQuery, refEqual } = require('firebase/firestore');
 // converters are used with `setDoc`, `addDoc`, and `getDoc`
 
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
+const { initializeApp, cert } = require('firebase-admin/app');
+const { getFirestore, Timestamp } = require('firebase-admin/firestore');
 
 const config = require('../config/config');
 fbApp = initializeApp({

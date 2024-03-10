@@ -5,15 +5,23 @@
       "src": "index.js",
       "use": "@now/node"
     },
-    { 
-      "src": "./src/swagger/index.js", 
-      "use": "@now/node" 
+    {
+      "src": "./src/swagger/index.js",
+      "use": "@now/node"
     }
   ],
-  "rewrites":[
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://https://t-bot-kik.vercel.app/:path*"
+    },
+    {
+      "source": "/api/:path*/",
+      "destination": "https://https://t-bot-kik.vercel.app/:path*/"
     }
   ]
 }
